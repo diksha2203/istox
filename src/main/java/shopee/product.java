@@ -20,12 +20,8 @@ public class product extends browserlaunch{
 		for (WebElement it : products) {
 			ArrayList<String> det = new ArrayList<String>();
 			String  price = it.findElement(By.xpath(pl.productPrice)).getText();
-			String name = it.findElement(By.xpath(pl.productName)).getText();
-			List<WebElement> ratings= it.findElements(By.xpath(pl.productRating));
 			String productHref = it.findElement(By.xpath(pl.productHref)).getAttribute("href");
 			det.add(pagenumber);
-			det.add(getProductRating(ratings));
-			det.add(name);
 			det.add(price);
 			det.add(productHref);
 			productDetails.add(det);
@@ -57,7 +53,7 @@ public class product extends browserlaunch{
 		double max=0;
 		ArrayList<String> maxPriceProductDetail = new ArrayList<String>();
 		for (int i=0; i<lst.size(); i++) {
-			double currPrice = Double.parseDouble(lst.get(i).get(3));
+			double currPrice = Double.parseDouble(lst.get(i).get(1));
 			if (currPrice>=max) {
 				max=currPrice;
 				maxPriceProductDetail = lst.get(i);

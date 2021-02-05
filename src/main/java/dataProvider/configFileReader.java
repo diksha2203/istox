@@ -30,7 +30,7 @@ public class configFileReader {
 	}
 
 	public String getDriverPath(){
-		String driverPath = properties.getProperty("chromeDriverPath");
+		String driverPath = System.getProperty("user.dir") + properties.getProperty("chromeDriverPath");
 		if(driverPath!= null) return driverPath;
 		else throw new RuntimeException("driverPath not specified in the Configuration.properties file."); 
 	}
