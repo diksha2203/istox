@@ -24,7 +24,7 @@ public class cart {
 	
 	public String discountedPrice() {
 		try {
-		Double originalPrice=Double.parseDouble(ph.findElementByXpath(cart.originalPrice).getText().replace("$", "").trim());
+		Double originalPrice=Double.parseDouble(ph.findElementByXpath(cart.originalPrice).getText().replace("$", "").replace(",","").trim());
 		Double currPrice=Double.parseDouble(ph.findElementByXpath(cart.currPrice).getText().replace("$", "").trim());
 		Double discountedPrice = originalPrice - currPrice;
 		return String.valueOf(discountedPrice);
