@@ -48,15 +48,6 @@ public class APITest extends APIBase{
 		JSONObject postalSearchResult = getRequest("https://developers.onemap.sg/commonapi/search", mp);
 		System.out.println(postalSearchResult.getJSONArray("results"));
 		Assert.assertTrue(anyMatch(textSearchResult.getJSONArray("results"), postalSearchResult.getJSONArray("results")));
-		JSONParser parser = new JSONParser();
-		Set<JSONArray> arr1elems =setOfElements(parser.parse(args[0]).getAsJsonArray());
-		Set<JSONArray> arr2elems =setOfElements(parser.parse(args[1]).getAsJsonArray());
-		//System.out.println("Arrays match? " + arr1elems.equals(arr2elems));
-		//		Set<Object> firstAsSet = convertJSONArrayToSet(textSearchResult.getJSONArray("results"));
-//        Set<Object> secondIdsAsSet = convertJSONArrayToSet(postalSearchResult.getJSONArray("results"));
-//        // use stream API anyMatch
-//        assert firstAsSet.stream()
-//                .anyMatch(secondIdsAsSet::contains);
 		
 	}
 
